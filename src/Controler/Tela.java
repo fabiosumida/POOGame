@@ -10,6 +10,7 @@
  */
 package Controler;
 
+import GameModel.BlocoSeta;
 import GameModel.GreenBloco;
 import GameModel.*;
 import Auxiliar.*;
@@ -30,7 +31,7 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
     private GreenBloco gB;
     private RedBloco RB;
     public ArrayList<Elemento> faseAtual;
-    public int fase=2;
+    public int fase=5;
     private ControleDeJogo cj = new ControleDeJogo();
     
     
@@ -126,6 +127,7 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
             onom = new Presidente("onom.png");
             onom.setPosicao(5, 5);
             this.addElemento(onom); 
+            
             for(int i=0;i<11;i++){
                 for(int j=0;j<11;j++){
                     if((i==1 && j==3) || (i==1 && j==7) || (i==3 && j==1) || (i==3 && j==3) || (i==3 && j==5) || (i==3 && j==7)
@@ -153,9 +155,7 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
             cereja.setPosicao(9,5);
             this.addElemento(cereja);
             
-            RedBlackBloco RBB = new RedBlackBloco("redblack.png");
-            RBB.setPosicao(6,5);
-            this.addElemento(RBB);
+            
             
             BichinhoVaiVemHorizontal BX1 = new BichinhoVaiVemHorizontal("amarelo.png");
             BX1.setPosicao(1,1);
@@ -212,6 +212,9 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
                     }
                 }
             }
+            RedBlackBloco RBB = new RedBlackBloco("redblack.png");
+            RBB.setPosicao(6,5);
+            this.addElemento(RBB);
         }
         
         
@@ -345,6 +348,121 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
             BX4.setPosicao(10,5);
             this.addElemento(BX4);
         }
+        
+        if(fase==5){
+            faseAtual = new ArrayList<Elemento>(100);
+            onom = new Presidente("onom.png");
+            onom.setPosicao(2, 8);
+            this.addElemento(onom); 
+            
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    if((i==4 && j==6) || (i==4 && j==9) || (i==5 && j==3) || (i==6 && j==6) || (i==7 && j==5)){
+                        SetaCima SC = new SetaCima("cima.png");
+                        SC.setPosicao(i,j);
+                        this.addElemento(SC);
+                    }
+                }
+            }
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    if((i==0 && j==7) || (i==1 && j==6) || (i==3 && j==5) || (i==4 && j==4) || (i==6 && j==1) || 
+                            (i==6 && j==4) || (i==7 && j==0) || (i==5 && j==7)){
+                        SetaBaixo SB = new SetaBaixo("baixo.png");
+                        SB.setPosicao(i,j);
+                        this.addElemento(SB);
+                    }
+                }
+            }
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    if((i==3 && j==6) || (i==3 && j==10) || (i==5 && j==4) || (i==6 && j==5) || (i==6 && j==7) || (i==9 && j==4)
+                            || (i==10 && j==3)){
+                        SetaEsquerda SE = new SetaEsquerda("esquerda.png");
+                        SE.setPosicao(i,j);
+                        this.addElemento(SE);
+                    }
+                }
+            }
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    if((i==4 && j==3) || (i==4 && j==5) || (i==5 && j==6) || (i==7 && j==4)){
+                        SetaDireita SD = new SetaDireita("direita.png");
+                        SD.setPosicao(i,j);
+                        this.addElemento(SD);
+                    }
+                }
+            }
+            
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    if((i==0 && j==5) || (i==1 && j==5) || (i==2 && j==5) || (i==3 && j==3) || (i==3 && j==7) || (i==5 && j==0)
+                            || (i==5 && j==1) || (i==5 && j==2) || (i==5 && j==5) || (i==5 && j==8) || (i==5 && j==9)
+                            || (i==5 && j==10) || (i==7 && j==3) || (i==7 && j==7) || (i==8 && j==5) || (i==9 && j==5) || (i==10 & j==5)){
+                        RedBloco RB = new RedBloco("blocored.png");
+                        RB.setPosicao(i,j);
+                        this.addElemento(RB);
+                    }
+                }
+            }
+            
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    if((i==7 && j==9) || (i==9 && j==7) || (i==9 && j==9)){
+                        RedBlackBloco RBB = new RedBlackBloco("redblack.png");
+                        RBB.setPosicao(i,j);
+                        this.addElemento(RBB);
+                    }
+                }
+            }
+            
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    if((i==4 && j==3) || (i==5 && j==4) || (i==3 && j==6) || (i==4 && j==5) || (i==6 && j==5) || (i==7 && j==4)
+                            || (i==5 && j==7) || (i==6 && j==6)){
+                        GreenBloco2 GB = new GreenBloco2("blocoverde.png");
+                        GB.setPosicao(i,j);
+                        this.addElemento(GB);
+                    }
+                }
+            }
+            
+            Fruta uva = new Fruta("pacman.png");
+            uva.setPosicao(0,6);
+            this.addElemento(uva);
+
+            Fruta mamao = new Fruta("sapo.png");
+            mamao.setPosicao(4,10);
+            this.addElemento(mamao);
+
+            Fruta maça = new Fruta("lula.png");
+            maça.setPosicao(6,0);
+            this.addElemento(maça);
+
+            Fruta cereja = new Fruta("coin.png");
+            cereja.setPosicao(10,4);
+            this.addElemento(cereja);
+            
+            BichinhoVaiVemHorizontal BX1 = new BichinhoVaiVemHorizontal("amarelo.png");
+            BX1.setPosicao(0,0);
+            this.addElemento(BX1);
+
+            BichinhoVaiVemHorizontal BX2 = new BichinhoVaiVemHorizontal("roxo.png");
+            BX2.setPosicao(1,0);
+            this.addElemento(BX2);
+
+            BichinhoVaiVemHorizontal BX3 = new BichinhoVaiVemHorizontal("verde.png");
+            BX3.setPosicao(1,1);
+            this.addElemento(BX3);
+
+            BichinhoVaiVemHorizontal BX4 = new BichinhoVaiVemHorizontal("azul.png");
+            BX4.setPosicao(0,1);
+            this.addElemento(BX4);
+            
+            BlocoSeta Bs = new BlocoSeta("seta.png");
+            Bs.setPosicao(7,6);
+            this.addElemento(Bs);
+        }
     }
     
     public void addElemento(Elemento umElemento) {
@@ -363,6 +481,8 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
         //Criamos um contexto gráfico
         Graphics g2 = g.create(getInsets().right, getInsets().top, getWidth() - getInsets().left, getHeight() - getInsets().bottom);
         //Desenha cenário
+        
+        
         if(fase==1){
             for (int i = 0; i < Consts.RES; i++) {
                 for (int j = 0; j < Consts.RES; j++) {
@@ -422,6 +542,22 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
                 }
             }
         }
+        
+        if(fase==5){
+            for (int i = 0; i < Consts.RES; i++) {
+                for (int j = 0; j < Consts.RES; j++) {
+                    try {
+                        Image newImage = Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + Consts.PATH + "background5.png");
+                        g2.drawImage(newImage,
+                                j * Consts.CELL_SIDE, i * Consts.CELL_SIDE, Consts.CELL_SIDE, Consts.CELL_SIDE, null);
+
+                    } catch (IOException ex) {
+                        Logger.getLogger(Tela.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }
+        
         
         
         this.cj.desenhaTudo(faseAtual, g2);
