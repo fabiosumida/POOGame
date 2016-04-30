@@ -10,7 +10,6 @@
  */
 package Controler;
 
-import GameModel.BlocoSeta;
 import GameModel.GreenBloco;
 import GameModel.*;
 import Auxiliar.*;
@@ -127,7 +126,6 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
             onom = new Presidente("onom.png");
             onom.setPosicao(5, 5);
             this.addElemento(onom); 
-            
             for(int i=0;i<11;i++){
                 for(int j=0;j<11;j++){
                     if((i==1 && j==3) || (i==1 && j==7) || (i==3 && j==1) || (i==3 && j==3) || (i==3 && j==5) || (i==3 && j==7)
@@ -155,7 +153,9 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
             cereja.setPosicao(9,5);
             this.addElemento(cereja);
             
-            
+            RedBlackBloco RBB = new RedBlackBloco("redblack.png");
+            RBB.setPosicao(6,5);
+            this.addElemento(RBB);
             
             BichinhoVaiVemHorizontal BX1 = new BichinhoVaiVemHorizontal("amarelo.png");
             BX1.setPosicao(1,1);
@@ -212,9 +212,6 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
                     }
                 }
             }
-            RedBlackBloco RBB = new RedBlackBloco("redblack.png");
-            RBB.setPosicao(6,5);
-            this.addElemento(RBB);
         }
         
         
@@ -348,7 +345,8 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
             BX4.setPosicao(10,5);
             this.addElemento(BX4);
         }
-        
+    
+    
         if(fase==5){
             faseAtual = new ArrayList<Elemento>(100);
             onom = new Presidente("onom.png");
@@ -463,7 +461,109 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
             Bs.setPosicao(7,6);
             this.addElemento(Bs);
         }
+   
+    
+    if(fase==6){
+            faseAtual = new ArrayList<Elemento>(100);
+            onom = new Presidente("onom.png");
+            onom.setPosicao(6, 2);
+            this.addElemento(onom); 
+            
+            for(int i=0;i<9;i++){
+                int j=0;
+                SetaBaixo SB = new SetaBaixo("baixo.png");
+                SB.setPosicao(i,j);
+                this.addElemento(SB);
+            }
+            
+            for(int i=4;i<9;i++){
+                int j=3;
+                SetaBaixo SB = new SetaBaixo("baixo.png");
+                SB.setPosicao(i,j);
+                this.addElemento(SB);
+            }
+            for(int j=4;j<10;j++){
+                int i=3;
+                SetaDireita SD = new SetaDireita("direita.png");
+                SD.setPosicao(i,j);
+                this.addElemento(SD);
+            }
+            
+            for(int j=4;j<10;j++){
+                int i=9;
+                SetaDireita SD = new SetaDireita("direita.png");
+                SD.setPosicao(i,j);
+                this.addElemento(SD);
+            }
+            
+            for(int i=4;i<9;i++){
+                int j=10;
+                SetaEsquerda SE = new SetaEsquerda("esquerda.png");
+                SE.setPosicao(i,j);
+                this.addElemento(SE);
+            }
+            
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    if((i==7 && j==6)){
+                        RedBloco RB = new RedBloco("blocored.png");
+                        RB.setPosicao(i,j);
+                        this.addElemento(RB);
+                    }
+                }
+            }
+            
+            for(int i=0;i<11;i++){
+                for(int j=0;j<11;j++){
+                    if((i==5 && j==4) || (i==6 && j==5) || (i==7 && j==4) || (i==8 && j==5) || (i==8 && j==7)){
+                        RedBlackBloco RBB = new RedBlackBloco("redblack.png");
+                        RBB.setPosicao(i,j);
+                        this.addElemento(RBB);
+                    }
+                }
+            }
+            
+            for(int j=1;j<11;j++){
+                int i=1;
+                BlocoSeta Bs = new BlocoSeta("seta.png");
+                Bs.setPosicao(i,j);
+                this.addElemento(Bs);
+            }
+            
+            Fruta uva = new Fruta("pacman.png");
+            uva.setPosicao(6,4);
+            this.addElemento(uva);
+
+            Fruta mamao = new Fruta("sapo.png");
+            mamao.setPosicao(7,5);
+            this.addElemento(mamao);
+
+            Fruta maça = new Fruta("lula.png");
+            maça.setPosicao(8,6);
+            this.addElemento(maça);
+
+            Fruta cereja = new Fruta("coin.png");
+            cereja.setPosicao(8,4);
+            this.addElemento(cereja);
+            
+            BichinhoVaiVemHorizontal BX1 = new BichinhoVaiVemHorizontal("amarelo.png");
+            BX1.setPosicao(4,6);
+            this.addElemento(BX1);
+
+            BichinhoVaiVemHorizontal BX2 = new BichinhoVaiVemHorizontal("roxo.png");
+            BX2.setPosicao(5,7);
+            this.addElemento(BX2);
+
+            BichinhoVaiVemHorizontal BX3 = new BichinhoVaiVemHorizontal("verde.png");
+            BX3.setPosicao(10,8);
+            this.addElemento(BX3);
+
+            BichinhoVaiVemHorizontal BX4 = new BichinhoVaiVemHorizontal("azul.png");
+            BX4.setPosicao(6,8);
+            this.addElemento(BX4);
+        }
     }
+    
     
     public void addElemento(Elemento umElemento) {
         faseAtual.add(umElemento);
@@ -481,8 +581,6 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
         //Criamos um contexto gráfico
         Graphics g2 = g.create(getInsets().right, getInsets().top, getWidth() - getInsets().left, getHeight() - getInsets().bottom);
         //Desenha cenário
-        
-        
         if(fase==1){
             for (int i = 0; i < Consts.RES; i++) {
                 for (int j = 0; j < Consts.RES; j++) {
@@ -556,8 +654,24 @@ public final class Tela extends javax.swing.JFrame implements MouseListener, Key
                     }
                 }
             }
-        }
+        } 
         
+        if(fase==6){
+            for (int i = 0; i < Consts.RES; i++) {
+                for (int j = 0; j < Consts.RES; j++) {
+                    try {
+                        Image newImage = Toolkit.getDefaultToolkit().getImage(new java.io.File(".").getCanonicalPath() + Consts.PATH + "background6.png");
+                        g2.drawImage(newImage,
+                                j * Consts.CELL_SIDE, i * Consts.CELL_SIDE, Consts.CELL_SIDE, Consts.CELL_SIDE, null);
+
+                    } catch (IOException ex) {
+                        Logger.getLogger(Tela.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }        
+        
+   
         
         
         this.cj.desenhaTudo(faseAtual, g2);
