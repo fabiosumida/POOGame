@@ -23,9 +23,10 @@ public class ControleDeJogo {
 
     public int a=4;
     public void desenhaTudo(ArrayList<Elemento> e, Graphics g){
-        for(int i = 0; i < e.size(); i++){
+        for(int i = 1; i < e.size(); i++){
             e.get(i).autoDesenho(g, e);
         }
+        e.get(0).autoDesenho(g, e);
     }
     public void processaTudo(ArrayList<Elemento> e){
         

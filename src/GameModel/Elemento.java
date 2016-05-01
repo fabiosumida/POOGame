@@ -43,7 +43,7 @@ public abstract class Elemento implements Serializable{
     public boolean Baixo;
     public int olhandopara; //cima = 0, direita = 1, baixo = 2, esquerda = 3
     public int move;
-    protected boolean bSeta;
+    public boolean bSeta;
 
     public boolean isbMortal() {
         return bMortal;
